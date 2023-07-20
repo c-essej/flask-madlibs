@@ -21,3 +21,13 @@ def to_homepage():
         "questions.html",
         prompts = prompts
     )
+
+@app.get('/results')
+def to_results():
+    print(request.args)
+    text = silly_story.get_result_text(request.args)
+
+    return render_template(
+        "results.html",
+        text = text
+    )
