@@ -8,13 +8,16 @@ app.config['SECRET_KEY'] = "secret"
 
 debug = DebugToolbarExtension(app)
 
-{}
+
+
+# ["place", "noun", "verb", "adjective", "plural_noun"],
 
 @app.get('/')
 def to_homepage():
-    name = request.args['noun']
+
+    prompts = silly_story.prompts
 
     return render_template(
         "questions.html",
-
+        prompts = prompts
     )
